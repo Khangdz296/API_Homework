@@ -1,12 +1,16 @@
 package com.example.api_homework.api;
 
+import com.example.api_homework.model.AuthRequest;
+import com.example.api_homework.model.AuthResponse;
 import com.example.api_homework.model.Category;
 import com.example.api_homework.model.Product;
 
 import java.util.List;
 
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.POST;
 import retrofit2.http.Path;
 
 public interface ApiService {
@@ -26,4 +30,10 @@ public interface ApiService {
     // 4. 10 sản phẩm tạo trong 7 ngày
     @GET("api/products/last7days")
     Call<List<Product>> getLast7DaysProducts();
+
+    @POST("api/auth/login")
+    Call<AuthResponse> login(@Body AuthRequest request);
+
+//    @POST("api/auth/register")
+//    Call<String> register(@Body RegisterRequest request);
 }
